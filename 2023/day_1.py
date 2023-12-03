@@ -37,7 +37,6 @@ def part_2(text):
 
     total = 0
 
-    matches = []
     for line in text:
         # https://stackoverflow.com/a/70979561
         line_matches = re.findall(regex, line)
