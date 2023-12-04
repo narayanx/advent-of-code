@@ -36,16 +36,16 @@ def part_1(text: list[tuple[int, set[int], list[int]]]):
 def part_2(text: list[tuple[int, set[int], list[int]]]):
     num_cards = [1 for _ in range(len(text))]
     for card_num, winning, mine in text:
-        for _ in range(num_cards[card_num - 1]):
-            running_wins = 0
-            for card in mine:
-                if card in set(winning):
-                    running_wins += 1
-            for offset in range(1, running_wins + 1):
-                try:
-                    num_cards[card_num - 1 + offset] += 1
-                except IndexError:
-                    pass
+        card_idx = card_num - 1
+        running_wins = 0
+        for card in mine:
+            if card in winning:
+                running_wins += 1
+        for offset in range(1, running_wins + 1):
+            try:
+                num_cards[card_idx + offset] += num_cards[card_idx]
+            except IndexError:
+                pass
     return sum(num_cards)
 
 
