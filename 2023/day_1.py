@@ -31,6 +31,7 @@ def part_2(text):
 
     words_to_digit = {string: digit for string, digit in zip(WORD_DIGITS, digits)}
 
+    # https://stackoverflow.com/a/70979561
     regex_digits = "(one)|(two)|(three)|(four)|(five)|(six)|(seven)|(eight)|(nine)"
     regex_temp = "".join([r"(?=(\d|", regex_digits, "))"])
     regex = re.compile(regex_temp)
@@ -38,7 +39,6 @@ def part_2(text):
     total = 0
 
     for line in text:
-        # https://stackoverflow.com/a/70979561
         line_matches = re.findall(regex, line)
         line_matches = [[word for word in match if word] for match in line_matches]
 
