@@ -10,6 +10,7 @@ with open(data_fp, "r", encoding="utf-8") as file:
         card_num = "".join([char for char in before_card_num if char.isdigit()])
         winning_nums, my_nums = after_card_num.split(" | ")
         winning_nums, my_nums = winning_nums.replace("  ", " "), my_nums.replace("  ", " ")
+        # check for empty string in list from leading space at beginning of numbers
         winning_nums = {i for i in winning_nums.split(" ") if i}
         my_nums = [j for j in my_nums.split(" ") if j]
 

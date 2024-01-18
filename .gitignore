@@ -4,3 +4,6 @@ scratchpad.py
 template.py
 make_day.py
 SESSION_ID.txt
+__pycache__
+message.txt
+session.py
